@@ -1,0 +1,79 @@
+Google Invisibility Tracker
+
+Description:
+This plugin informs you when a buddy of yours goes invisible. This is possible 
+only if your buddy uses Gmail chat or Google Talk Lab Edition or iGoogle chat.
+
+How? Why?
+
+The reason is that these 3 clients use to send a vcard node when they go offline
+while when going invisible they send a plain unavailable presence. This means 
+that if we analyze all unavailable presences sent by online buddies we can 
+discover if they’re going offline or invisible. Obviously you have to be online
+(or at least invisible) to catch the presence.
+
+Note that there’s a odd case: if shared status is invisible we cannot state if
+the chat is turned on while if shares status is not invisible we’re sure that an
+unavailable presence (with the vcard) means that the buddy has the chat turned 
+off (in that client/resource obviously!).
+
+There is an easy way to cheat this plugin: just use a XMPP client without Google
+Shared Status (i.e. Pidgin, Psi, Kopete) and set the resource to “gmail” or 
+“iGoogle” or “TalkGadget” and after login go offline. The client will send a 
+presence unavailable without vcard so the plugin will catch you as Invisible.
+
+
+NOTE:
+
+o - I’ve not tested this idea very much so if you think there’s something wrong 
+    please make me know! I know for sure there’re some false positives. If you 
+    had experience of this please send me as details as possible. Thanks!
+
+o - This plugin works only with Gmail address with domain gmail.com. I know that
+    I could use Google Talk flag to get all Gmail accounts but this is not 
+    possible in Debian by using only pidgin-dev dependencies. If you know a 
+    better way to do this please contact me!
+    
+o - Because my friend Alessandro complained that a popup every time a buddy goes
+    invisible is quite annoying (and he’s definitively right! :) ), I’ve made it
+    optional. Now you can be informed in several ways:
+      - Debug window: the most verbose and always enabled;
+      - Popup: old annoying method;
+      - Conversations Message: a message appears in all conversations windows;
+      - System Log: a message is written in system log;
+
+*** Popup, Conversations Message and System Log are disabled by default, this 
+means you have to enable them in configurations! ***
+
+
+Contacts:
+For bugs reports, hints, … email me at federico.zanco ( at ) gmail.com.
+
+How to install:
+Read the INSTALL file.
+
+How to use:
+1)  Compile and Install (read INSTALL) or Download (from 
+    http://www.siorarina.net/google-invisibility-tracker/) the plugin for your 
+    arch.
+
+    Linux: if you don't have GNU make program installed on your system, to 
+    install the plugin manually copy google-invisibility-tracker.so in your 
+    purple home dir:
+    
+    (if ~/.purple/plugins/ does not exist: $ mkdir ~/.purple/plugins/ )
+    $ cp google-invisibility-tracker.so ~/.purple/plugins/
+
+    Windows: Move google-invisibility-tracker.dll in Pidgin plugins dir (I 
+    suppose you can create 
+    C:\Documents and Settings\<user>\Applications data\.purple\plugins 
+    and move the plugin there). In Windows it should be something like 
+    C:\Programmi\Pidgin\plugins\
+
+3)  Restart Pidgin and in Tools/Plugins you should see Google Invisibility Tracker
+
+    Once enabled you’ll be notified every time a buddy of yours goes invisible. 
+    Popup, Conversations Message and System Log are disabled by default, this 
+    means you have to enable them in configurations.
+
+

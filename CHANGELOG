@@ -1,0 +1,19 @@
+Date        Version Note
+
+19/01/2011  0.2.2   Nothing new but I've add a Makefile to make compiling easier
+                    and more efficient. Now unused dependencies like gtk are no
+                    more needed (Finch users should be happy!)
+
+29/10/2010  0.2.1   Added a timestamp and some other info to popup alert (thanks
+                    to Bharath Rajaram)
+                    
+28/10/2010  0.2     I’ve fixed a bug about status recheck. That probably was the
+                    major cause of unreliability
+                    
+14/10/2010	0.1.2   Added a recheck of buddy status after a timeout (default 
+                    10s) to avoid/reduce false positives due to network errors
+                    
+22/07/2010  0.1.1   Popup are now optionals. Added alerts in conversations and 
+                    system log
+                    
+16/07/2010  0.1     First
